@@ -19,9 +19,14 @@ namespace Formularios
 
         private void btningresar_Click(object sender, EventArgs e)
         {
-            string user = txusuario.Text;
-            string password = txcontraseña.Text;
-            if(user.Trim().ToLower()=="elpepe"&&password.Trim().ToLower()=="1234")
+            string usuario = txusuario.Text;
+            string contrasena = txcontraseña.Text;
+
+            // Credenciales de ejemplo (puedes cambiarlas o validarlas contra una base de datos)
+            string usuarioValido = "admin";
+            string contrasenaValida = "1234";
+
+            if (usuario == usuarioValido && contrasena == contrasenaValida)
             {
                 Inicio ventana = new Inicio();
                 ventana.Show();
@@ -29,7 +34,9 @@ namespace Formularios
             }
             else
             {
-                MessageBox.Show("Fallaste");
+                MessageBox.Show("Usuario o contraseña incorrectos", "Error de acceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txcontraseña.Clear();
+                txusuario.Focus();
             }
         }
     }
