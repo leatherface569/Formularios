@@ -22,7 +22,7 @@ namespace Formularios
             string usuario = txusuario.Text;
             string contrasena = txcontraseña.Text;
 
-            string usuarioValido = "elpepe";
+            string usuarioValido = "admin";
             string contrasenaValida = "1234";
 
             if (usuario == usuarioValido && contrasena == contrasenaValida)
