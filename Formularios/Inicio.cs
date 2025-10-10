@@ -54,5 +54,23 @@ namespace Formularios
             else
                 MessageBox.Show("No se pudo eliminar nombre");
         }
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Archivos de Excel (*.xlsx)|*.xlsx";
+                saveFileDialog.Title = "Guardar nombres en Excel";
+                saveFileDialog.FileName = "Nombres.xlsx";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string rutaArchivo = saveFileDialog.FileName;
+                    if (Acciones.ExportarNombresAExcel(rutaArchivo))
+                        MessageBox.Show("Exportación exitosa");
+                    else
+                        MessageBox.Show("Error al exportar");
+                }
+            }
+        }
     }
 }

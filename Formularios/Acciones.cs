@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,6 +47,29 @@ namespace Formularios
                 return false;
             }
         }
-    }
+        public bool ExportarNombresAExcel(string rutaArchivo)
+        {
+            try
+            {
+                using (var workbook = new XLWorkbook())
+                {
+                    var worksheet = workbook.Worksheets.Add("Nombres");
+                    worksheet.Cell(1, 1).Value = "Nombres";
 
+                    for (int i = 0; i < listanombres.Count; i++)
+                    {
+                        worksheet.Cell(i + 2, 1).Value = listanombres[i];
+                    }
+
+                    worksheet.Column(1).AdjustToContents();
+                    workbook.SaveAs(rutaArchivo);
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+    }
 }

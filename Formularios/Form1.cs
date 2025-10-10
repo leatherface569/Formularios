@@ -22,8 +22,7 @@ namespace Formularios
             string usuario = txusuario.Text;
             string contrasena = txcontraseña.Text;
 
-            // Credenciales de ejemplo (puedes cambiarlas o validarlas contra una base de datos)
-            string usuarioValido = "admin";
+            string usuarioValido = "elpepe";
             string contrasenaValida = "1234";
 
             if (usuario == usuarioValido && contrasena == contrasenaValida)
